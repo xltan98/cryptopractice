@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="/articles" data-th-object="${idList}">
+        <h1>Crypto News of the Day</h1>
+        <br>
+        <button type="submit">Save</button>
+        <br>
+        <div th:each="i:${articleList.ArticleList}" >
+            <table>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px; height: 100px; width:1500px;">
+                        <img data-th-src="${i.imageurl}" style="width: auto; height: 400px; float: left; margin-right: 10px;"/>
+                        <p>Id: <span data-th-text="${i.id}" th:field="${i.id}"></span></p>
+                        <p>published_on: <span data-th-text="${i.published_on}" ></span></p>
+                        <p>Title: <span data-th-text="${i.title}" ></span></p>
+                        <p>url: <a th:href="${i.url}" >Link</a></p>
+                        <p>imageurl: <a th:href="${i.imageurl}" >Link</a></p>
+                        <p>Body: <span data-th-text="${i.body}" ></span></p>
+                        <p>Tags: <span data-th-text="${i.tags}" ></span></p>
+                        <p>Categories: <span data-th-text="${i.category}" ></span></p>
+                        <span>Save</span><input type="checkbox" name="selectedArticle" th:value="${i.id}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
+

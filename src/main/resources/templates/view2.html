@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save News</title>
+</head>
+<body data-th-object="${articleList}">
+    <h1>Save News</h1>
+    <div th:each="i:${articleList.ArticleList}" >
+        <table>
+            <tr>
+                <td style="border: 1px solid black; padding: 10px; height: 100px; width:1500px;">
+                    <img data-th-src="${i.imageurl}" style="width: auto; height: 400px; float: left; margin-right: 10px;"/>
+                    <p>Id: <span data-th-text="${i.id}" th:field="${i.id}"></span></p>
+                    <p>published_on: <span data-th-text="${i.published_on}" ></span></p>
+                    <p>Title: <span data-th-text="${i.title}" ></span></p>
+                    <p>url: <a th:href="${i.url}" >Link</a></p>
+                    <p>imageurl: <a th:href="${i.imageurl}" >Link</a></p>
+                    <p>Body: <span data-th-text="${i.body}" ></span></p>
+                    <p>Tags: <span data-th-text="${i.tags}" ></span></p>
+                    <p>Categories: <span data-th-text="${i.category}" ></span></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
